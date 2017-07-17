@@ -27,6 +27,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Car\" />
+    <Folder Include="Views\Url\" />
+    <Folder Include="Views\Url\" />
+    <Folder Include="Views\Url\" />
+    <Folder Include="Views\Url\" />
+    <Folder Include="Views\Url\" />
+    <Folder Include="Views\Url\" />
   </ItemGroup>
 
 </Project>

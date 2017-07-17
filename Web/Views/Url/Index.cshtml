@@ -1,0 +1,42 @@
+@model IEnumerable<ClassLibrary1.URL_Shortener.UrlShortener>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>URL Shortener</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.OriginalUrl)</th>
+    </tr>
+
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Hash)</th>
+    </tr>
+
+    
+
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OriginalUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hash)
+            </td>
+            <td>
+                @*                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+                @*                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @*                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
