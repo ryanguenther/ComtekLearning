@@ -1,0 +1,86 @@
+@model ClassLibrary1.Selling
+
+@{
+    ViewData["Title"] = "Trade";
+}
+
+<h2>Buying & Selling</h2>
+
+<hr/>
+
+<form asp-action="Trade">
+    <div class="form-horizontal">
+        <h4>Buying</h4>
+        <hr/>
+
+        <div>
+            <label for="New">New Car</label> <input type="checkbox" name="New" value="New" id="New">&emsp;&emsp;<label for="Used">Used Car</label> <input type="checkbox" name="Used" value="Used" id="Used">
+        </div>
+
+        <br/>
+        <Strong>Price Range</Strong>
+    </div>
+    <div class="col-md-10 "></div>
+    <div class="col-md-10"></div>
+    <select>
+        <option>---------------Select---------------</option>
+        <option>$0 - $25,000</option>
+        <option>$25,000 - $50,000</option>
+        <option>$50,000 - $75,000</option>
+        <option>$75,000 - $100,000</option>
+        <option>$0 - $100,000</option>
+    </select>
+
+    <div>
+        <br/>
+    </div>
+
+    <Strong>Colour</Strong>
+    <div></div>
+    <div class="col-md-10 "></div>
+    <div class="col-md-10"></div>
+    <select>
+        <option>---------------Select---------------</option>
+        <option>White</option>
+        <option>Black</option>
+        <option>Blue</option>
+        <option>Yellow</option>
+        <option>Green</option>
+        <option>Red</option>
+        <option>Purple</option>
+        <option>Grey</option>
+    </select>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group"> </div>
+
+    <br/>
+    <div class="col-md-offset-0">
+        <input type="submit" value="Search" class="btn btn-default"/>
+    </div>
+
+
+</form>
+
+<hr/>
+<h4>Selling</h4>
+<hr/>
+<div class="form-horizontal">
+</div>
+
+<Strong>Sell Price</Strong>
+<form name="SellPrice">
+    <strong>$</strong> <textarea name="SellPrice" id="SellPrice" rows="1" ></textarea>
+</form>
+
+<br/>
+<br/>
+<div class="col-md-offset-0">
+    <input type="submit" value="Search" class="btn btn-default"/>
+</div>
+
+<br/>
+<br/>
+<div>
+    <a asp-action="Index">Home</a>
+</div>
