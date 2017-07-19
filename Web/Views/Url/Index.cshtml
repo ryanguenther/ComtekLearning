@@ -1,3 +1,4 @@
+@using System.Collections.Generic
 @model IEnumerable<ClassLibrary1.URL_Shortener.UrlShortener>
 
 @{
@@ -6,37 +7,45 @@
 
 <h2>URL Shortener</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    
+<hr/>
+
+<table class="table-condensed">
+
     <tr>
         <th>@Html.DisplayNameFor(model => model.OriginalUrl)</th>
+        @foreach (var item in Model)
+        {
+            <td>
+                <div class="form-group">@Html.TextBoxFor(modelItem => item.OriginalUrl, new {placeholder = "Original URL", @class = "form-control"})</div>
+            </td>
+        }
     </tr>
 
     <tr>
         <th>@Html.DisplayNameFor(model => model.Hash)</th>
+        @foreach (var item in Model)
+        {
+            <td>@Html.DisplayFor(modelItem => item.Hash)</td>
+        }
     </tr>
 
-    
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Expiry)</th>
+        @foreach (var item in Model)
+        {
+            <td>@Html.DisplayFor(modelItem => item.Expiry)</td>
+        }
+    </tr>
 
-    <tbody>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OriginalUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hash)
-            </td>
-            <td>
-                @*                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-                @*                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @*                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-            </td>
-        </tr>
-    }
-    </tbody>
 </table>
+
+<br/>
+<div class="col-md-offset-0">
+    <input type="submit" value="Save" class="btn btn-default"/>
+</div>
+
+<hr/>
+
+<p>
+    @Html.ActionLink("Home", "Index", "Home")
+</p>

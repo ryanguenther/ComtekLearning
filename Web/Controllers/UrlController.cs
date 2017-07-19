@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ClassLibrary1;
 using ClassLibrary1.URL_Shortener;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace Web.Controllers
 {
@@ -12,7 +12,31 @@ namespace Web.Controllers
     {
         public IActionResult Index()
         {
-            return View(new List<UrlShortener>());
+            var url = new UrlInfo();
+            var time = url.Time();
+
+            var urlclass = new UrlShortener();
+            //var useurl = urlclass.OriginalUrl;
+
+            return View(new List<UrlShortener>
+            {
+                new UrlShortener
+                {
+                    Expiry = time,
+                    Hash = "I am a hash",
+                    OriginalUrl = urlclass.OriginalUrl //useurl
+                },
+
+                /*
+                new UrlShortener
+                {
+                    Expiry = "tomorrow",
+                    Hash = "I am a hash2",
+                    OriginalUrl = "REALLY LONG URL2"
+                },
+                */
+
+            });
         }
 
         public IActionResult Create()
