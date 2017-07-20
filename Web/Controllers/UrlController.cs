@@ -16,6 +16,7 @@ namespace Web.Controllers
             var time = url.Time();
 
             var urlclass = new UrlShortener();
+
             //var useurl = urlclass.OriginalUrl;
 
             return View(new List<UrlShortener>
@@ -37,6 +38,14 @@ namespace Web.Controllers
                 */
 
             });
+        }
+
+        [HttpPost]
+        public IActionResult Index(UrlShortener save)
+        {
+            var urlsave = new UrlInfo();
+            urlsave.Save(save.ID, save);
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Create()

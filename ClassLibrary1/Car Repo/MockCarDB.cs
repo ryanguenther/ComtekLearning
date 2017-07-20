@@ -6,7 +6,7 @@ using ClassLibrary1;
 
 namespace ClassLibrary1
 {
-    public static class MockDB
+    public static class MockCarDB
     {
         public static List<Car> cars = new List<Car>
         {

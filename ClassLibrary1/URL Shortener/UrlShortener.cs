@@ -12,5 +12,6 @@ namespace ClassLibrary1.URL_Shortener
         public string OriginalUrl { get; set; }
         public string Hash { get; set; }
         public DateTime Expiry { get; set; }
+        public int ID { get; set; }
     }
 }

@@ -8,41 +8,44 @@
 <h2>URL Shortener</h2>
 
 <hr/>
+<form asp-action = "Index">
+    <table class="table-condensed">
 
-<table class="table-condensed">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OriginalUrl)</th>
+            @foreach (var item in Model)
+            {
+                <td>
+                    <div class="form-group">@Html.TextBoxFor(modelItem => item.OriginalUrl, new { placeholder = "Original URL", @class = "form-control" })</div>
+                </td>
+            }
+        </tr>
 
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.OriginalUrl)</th>
-        @foreach (var item in Model)
-        {
-            <td>
-                <div class="form-group">@Html.TextBoxFor(modelItem => item.OriginalUrl, new {placeholder = "Original URL", @class = "form-control"})</div>
-            </td>
-        }
-    </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Hash)</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Hash)</td>
+            }
+        </tr>
 
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Hash)</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Hash)</td>
-        }
-    </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Expiry)</th>
+            @foreach (var item in Model)
+            {
+                <td>@Html.DisplayFor(modelItem => item.Expiry)</td>
+            }
+        </tr>
 
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Expiry)</th>
-        @foreach (var item in Model)
-        {
-            <td>@Html.DisplayFor(modelItem => item.Expiry)</td>
-        }
-    </tr>
+    </table>
 
-</table>
-
-<br/>
-<div class="col-md-offset-0">
-    <input type="submit" value="Save" class="btn btn-default"/>
-</div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-0">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</form>
 
 <hr/>
 
