@@ -13,9 +13,17 @@ namespace ClassLibrary1.URL_Shortener
             new UrlShortener()
             {
                 OriginalUrl = "https://",
-                Hash = "Hash",
+                Hash = "",
                 Expiry = DateTime.Now.AddDays(7),
                 ID = 1
+            },
+
+            new UrlShortener()
+            {
+                OriginalUrl = "https://",
+                Hash = "",
+                Expiry = DateTime.Now.AddDays(7),
+                ID = 2
             }
         };
     }

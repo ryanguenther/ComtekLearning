@@ -10,42 +10,28 @@ namespace Web.Controllers
 {
     public class UrlController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(int ID)
+        {
+            var urlpage = new UrlInfo();
+            var newurl = urlpage.GetUrls();
+            //var newhash = urlpage.RandomString();
+
+            return View(newurl);
+        }
+
+        public IActionResult Edit(int ID)
         {
             var url = new UrlInfo();
-            var time = url.Time();
-
-            var urlclass = new UrlShortener();
-
-            //var useurl = urlclass.OriginalUrl;
-
-            return View(new List<UrlShortener>
-            {
-                new UrlShortener
-                {
-                    Expiry = time,
-                    Hash = "I am a hash",
-                    OriginalUrl = urlclass.OriginalUrl //useurl
-                },
-
-                /*
-                new UrlShortener
-                {
-                    Expiry = "tomorrow",
-                    Hash = "I am a hash2",
-                    OriginalUrl = "REALLY LONG URL2"
-                },
-                */
-
-            });
+            var urlshort = url.GetUrlById(ID);
+            return View(urlshort);
         }
 
         [HttpPost]
-        public IActionResult Index(UrlShortener save)
+        public IActionResult Edit(UrlShortener save)
         {
             var urlsave = new UrlInfo();
             urlsave.Save(save.ID, save);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Url");
         }
 
         public IActionResult Create()

@@ -11,19 +11,6 @@ namespace ClassLibrary1.URL_Shortener
 {
     public class UrlInfo : IUrlInfo
     {
-        public DateTime Time()
-        {
-            //var x = DateTime.Today.ToString("MM/dd/yyyy");
-            var today = DateTime.Now;
-
-            return today.AddDays(7);
-        }
-
-        public UrlShortener Hash()
-        {
-            return null;
-        }
-
         public List<UrlShortener> GetUrls()
         {
             var urllist = MockUrlDB.urls;
@@ -44,6 +31,20 @@ namespace ClassLibrary1.URL_Shortener
             update.OriginalUrl = save.OriginalUrl;
 
             return update;
+        }
+
+        public string RandomString()
+        {
+            string input = "abcdefghijklmnopqrstuvwxyz0123456789";
+            StringBuilder builder = new StringBuilder();
+            var random = new Random();
+
+            for (int i = 0; i < 8; i++)
+            {
+                var ch = input[random.Next(0, input.Length)];
+                builder.Append(ch);
+            }
+            return builder.ToString();
         }
     }
 }

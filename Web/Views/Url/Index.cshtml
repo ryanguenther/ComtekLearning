@@ -1,54 +1,52 @@
 @using System.Collections.Generic
-@model IEnumerable<ClassLibrary1.URL_Shortener.UrlShortener>
+@model System.Collections.Generic.IEnumerable<ClassLibrary1.URL_Shortener.UrlShortener>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>URL Shortener</h2>
-
-<hr/>
-<form asp-action = "Index">
-    <table class="table-condensed">
-
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.OriginalUrl)</th>
-            @foreach (var item in Model)
-            {
-                <td>
-                    <div class="form-group">@Html.TextBoxFor(modelItem => item.OriginalUrl, new { placeholder = "Original URL", @class = "form-control" })</div>
-                </td>
-            }
-        </tr>
-
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Hash)</th>
-            @foreach (var item in Model)
-            {
-                <td>@Html.DisplayFor(modelItem => item.Hash)</td>
-            }
-        </tr>
-
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Expiry)</th>
-            @foreach (var item in Model)
-            {
-                <td>@Html.DisplayFor(modelItem => item.Expiry)</td>
-            }
-        </tr>
-
-    </table>
-
-    <br />
-    <div class="form-group">
-        <div class="col-md-offset-0">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</form>
-
-<hr/>
+<h2>Url Shortener</h2>
 
 <p>
-    @Html.ActionLink("Home", "Index", "Home")
+    <a asp-action="Create">Create New</a>
 </p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OriginalUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hash)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Expiry)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a href="@Html.DisplayFor(modelItem => item.OriginalUrl)" target="_blank">@Html.DisplayFor(modelItem => item.OriginalUrl)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expiry)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
