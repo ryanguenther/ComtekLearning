@@ -29,22 +29,23 @@ namespace ClassLibrary1.URL_Shortener
         {
             var update = GetUrlById(ID);
             update.OriginalUrl = save.OriginalUrl;
+            update.Hash = save.Hash;
 
             return update;
         }
 
-        public string RandomString()
+        public string RandomHash()
         {
             string input = "abcdefghijklmnopqrstuvwxyz0123456789";
-            StringBuilder builder = new StringBuilder();
+            StringBuilder hashbuilder = new StringBuilder();
             var random = new Random();
 
             for (int i = 0; i < 8; i++)
             {
-                var ch = input[random.Next(0, input.Length)];
-                builder.Append(ch);
+                var hash = input[random.Next(0, input.Length)];
+                hashbuilder.Append(hash);
             }
-            return builder.ToString();
+            return hashbuilder.ToString();
         }
     }
 }

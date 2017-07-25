@@ -10,12 +10,10 @@ namespace Web.Controllers
 {
     public class UrlController : Controller
     {
-        public IActionResult Index(int ID)
+        public IActionResult Index()
         {
             var urlpage = new UrlInfo();
             var newurl = urlpage.GetUrls();
-            //var newhash = urlpage.RandomString();
-
             return View(newurl);
         }
 
@@ -34,9 +32,17 @@ namespace Web.Controllers
             return RedirectToAction("Index", "Url");
         }
 
-        public IActionResult Create()
+       /* public IActionResult UrlOriginal()
         {
-            throw new NotImplementedException();
+            return View();
+        }*/
+
+        [HttpPost]
+        public IActionResult UrlOriginal(UrlShortener save)
+        {
+            var urlsave = new UrlInfo();
+            urlsave.Save(save.ID, save);
+            return RedirectToAction("Index", "Url");
         }
     }
 }

@@ -5,31 +5,44 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Url Shortener</h2>
+<h2>URL Shortener</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<br/>
+
+<form asp-action="UrlOriginal">
+    <h5 class="col-md-1 control-label">New URL:</h5>
+    <div class="col-md-offset-0">
+        <input class="form-control"/>
+        <span class="text-danger"></span>
+        @*        <div class="col-md-offset-2">*@
+        <input type="submit" value="Save" class="btn btn-default"/>
+        @*        </div>*@
+    </div>
+</form>
+
+<br/>
+
 <table class="table">
     <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.OriginalUrl)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Hash)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Expiry)
-                </th>
-                @*<th>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expiry)
+        </th>
+        @*<th>
                     @Html.DisplayNameFor(model => model.ID)
                 </th>*@
-            <th></th>
-        </tr>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 <a href="@Html.DisplayFor(modelItem => item.OriginalUrl)" target="_blank">@Html.DisplayFor(modelItem => item.OriginalUrl)</a>
@@ -44,9 +57,9 @@
                 @Html.DisplayFor(modelItem => item.ID)
             </td>*@
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+                @Html.ActionLink("Edit", "Edit", new {id = item.ID})
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
