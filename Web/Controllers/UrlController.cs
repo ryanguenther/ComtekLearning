@@ -32,10 +32,12 @@ namespace Web.Controllers
             return RedirectToAction("Index", "Url");
         }
 
-       /* public IActionResult UrlOriginal()
+        public IActionResult UrlOriginal(int ID)
         {
-            return View();
-        }*/
+            var url = new UrlInfo();
+            var urlshort = url.GetUrlById(ID);
+            return View(urlshort);
+        }
 
         [HttpPost]
         public IActionResult UrlOriginal(UrlShortener save)

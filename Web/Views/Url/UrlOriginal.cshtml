@@ -2,39 +2,39 @@
 @model ClassLibrary1.URL_Shortener.UrlShortener
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "UrlOriginal";
 }
 
-<h2>Edit</h2>
+<h2>Add URL</h2>
 
-<form asp-action="Edit">
+<form asp-action="UrlOriginal">
     <div class="form-horizontal">
-        <h4>URL & Hash</h4>
+        <h4>URL</h4>
         <hr/>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        @Html.HiddenFor(editing => editing.OriginalUrl)
-        @*<div class="form-group">
+        <div class="form-group">
             <label asp-for="OriginalUrl" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="OriginalUrl" class="form-control"/>
                 <span asp-validation-for="OriginalUrl" class="text-danger"></span>
             </div>
-        </div>*@
+        </div>
 
-        <div class="form-group">
+        @Html.HiddenFor(editing => editing.Hash)
+        @*<div class="form-group">
             <label asp-for="Hash" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Hash" class="form-control"/>
+                <input asp-for="Hash" class="form-control" />
                 <span asp-validation-for="Hash" class="text-danger"></span>
             </div>
-        </div>
+        </div>*@
 
         @Html.HiddenFor(editing => editing.Expiry)
         @*<div class="form-group">
             <label asp-for="Expiry" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Expiry" class="form-control"/>
+                <input asp-for="Expiry" class="form-control" />
                 <span asp-validation-for="Expiry" class="text-danger"></span>
             </div>
         </div>*@
@@ -43,7 +43,7 @@
         @*<div class="form-group">
             <label asp-for="ID" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="ID" class="form-control"/>
+                <input asp-for="ID" class="form-control" />
                 <span asp-validation-for="ID" class="text-danger"></span>
             </div>
         </div>*@
