@@ -28,7 +28,7 @@ namespace Web.Controllers
         public IActionResult Edit(UrlShortener save)
         {
             var urlsave = new UrlInfo();
-            urlsave.Save(save.ID, save);
+            urlsave.Update(save.ID, save);
             return RedirectToAction("Index", "Url");
         }
 
@@ -40,10 +40,10 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult UrlOriginal(UrlShortener save)
+        public IActionResult UrlOriginal(UrlShortener model)
         {
             var urlsave = new UrlInfo();
-            urlsave.Save(save.ID, save);
+            urlsave.Create(model);
             return RedirectToAction("Index", "Url");
         }
     }

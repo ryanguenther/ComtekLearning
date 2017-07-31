@@ -17,6 +17,8 @@ namespace ClassLibrary1.URL_Shortener
             return urllist;
         }
 
+        //GetUrlByHash
+
         public UrlShortener GetUrlById(int ID)
         {
             var listOfUrls = GetUrls();
@@ -25,13 +27,23 @@ namespace ClassLibrary1.URL_Shortener
             return url;
         }
 
-        public UrlShortener Save(int ID, UrlShortener save)
+        public UrlShortener Update(int ID, UrlShortener save)
         {
             var update = GetUrlById(ID);
             update.OriginalUrl = save.OriginalUrl;
             update.Hash = save.Hash;
 
             return update;
+        }
+
+        public UrlShortener Create(UrlShortener model)
+        {
+            MockUrlDB.urls.Add(model);
+ 
+            model.Hash = RandomHash();
+            model.Expiry = DateTime.Now.AddDays(7);
+
+            return model;
         }
 
         public string RandomHash()

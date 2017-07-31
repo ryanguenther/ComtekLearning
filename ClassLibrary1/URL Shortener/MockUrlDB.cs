@@ -11,13 +11,13 @@ namespace ClassLibrary1.URL_Shortener
     {
         public static List<UrlShortener> urls = new List<UrlShortener>
         {
-            new UrlShortener()
+           /* new UrlShortener()
             {
                 OriginalUrl = "https://",
                 Hash = "",
                 Expiry = DateTime.Now.AddDays(7),
                 ID = 1
-            },
+            },*/
 
             /*new UrlShortener()
             {

@@ -6,7 +6,7 @@ namespace ClassLibrary1.URL_Shortener
 {
     interface IUrlInfo
     {
-        UrlShortener Save(int ID, UrlShortener save);
+        UrlShortener Update(int ID, UrlShortener save);
 
         UrlShortener GetUrlById(int ID);
 
